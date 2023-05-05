@@ -1,4 +1,4 @@
-# Ejemplo de projecto Java Spring Boot con GraphQL y REST API con MongoDB empleando Arquitectura Hexagonal
+# Ejemplo de proyecto Java Spring Boot con GraphQL y REST API con MongoDB empleando Arquitectura Hexagonal
 
 Este es un ejemplo simple de cómo usar **GraphQL y REST API con Java Spring Boot** en un proyecto de **Arquitectura Hexagonal** empleando 
 diferentes dependencias tales como lombok, graphql, mongodb, spqr entre otras.
