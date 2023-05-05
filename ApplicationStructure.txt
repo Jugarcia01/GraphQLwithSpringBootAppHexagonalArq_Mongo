@@ -1,0 +1,76 @@
+Consider we have this three java clases: Order, Customer and SaleDetails; this is the source code of each one:
+
+public class Customer {
+    private UUID id;
+    private String email;
+    private String name;
+    private String lastName;
+}
+
+public class SaleDetails {
+    private UUID id;
+    private String sku;
+    private Long quantity;
+    private BigDecimal unitPrice;
+    private BigDecimal totalPrice;
+    private BigDecimal discountAmount;
+}
+
+public class Order implements Serializable {
+  private UUID id;
+  private String name;
+  private String description;
+  private Customer customer;
+  private List<SaleDetails> saleDetails;
+  private BigDecimal totalOrder;
+
+  public Order addCustomer(Customer customer) {
+    this.customer = customer;
+    return this;
+  }
+
+  public Order addSaleDetails(SaleDetails saleDetails) {
+    this.saleDetails.add(saleDetails);
+    return this;
+  }
+}
+
+Now please generate an tree hexagonal architecture (domain, application and infrastructure) structure of a maven Spring Boot project that include this three entity classes.
+
+
+Application Layer:
+------------------
+ CustomerDTO
+ SaleDetailsDTO
+ OrderDTO   
+ OrderMapper
+ OrderService
+ OrderUseCase
+
+Domain layer:
+-------------
+ Customer
+ SaleDetails
+ Order
+ CustomerService
+ SaleDetailsService
+ OrderService
+ CustomerRepository
+ SaleDetailsRepository
+ OrderRepository
+
+Infrastructure layer:
+---------------------
+ PostgreSQLCustomerDao
+ PostgreSQLSaleDetailsDao
+ PostgreSQLOrderDao
+ MongoDBCustomerDao
+ MongoDBSaleDetailsDao
+ MongoDBOrderDao
+ CustomerInputAdapter
+ SaleDetailsInputAdapter
+ OrderInputAdapter
+ CustomerOutputAdapter
+ SaleDetailsOutputAdapter
+ OrderOutputAdapter
+
